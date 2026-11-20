@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Controllers;
-
+use App\Models\MenuModel;
+use App\Models\KategoriModel;
 use App\Controllers\BaseController;
 use CodeIgniter\HTTP\ResponseInterface;
 
@@ -53,7 +54,7 @@ class Menu extends BaseController
     public function simpan()
     {
         $rules = [
-            'id_kategori' => 'required|is_natural_no_zero',
+            'id_kategori' => 'required|is_natural_no_zero|is_not_unique[kategori.id_kategori]',
             'nama_menu' => 'required|min_length[3]|max_length[100]',
             'harga' => 'required|decimal|greater_than[0]',
             'status' => 'required|in_list[tersedia,habis]',
@@ -117,7 +118,7 @@ class Menu extends BaseController
         }
 
         $rules = [
-            'id_kategori' => 'required|is_natural_no_zero',
+            'id_kategori' => 'required|is_natural_no_zero|is_not_unique[kategori.id_kategori]',
             'nama_menu' => 'required|min_length[3]|max_length[100]',
             'harga' => 'required|decimal|greater_than[0]',
             'status' => 'required|in_list[tersedia,habis]',
