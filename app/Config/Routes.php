@@ -27,4 +27,4 @@ $routes->post('menu/update/(:num)', 'Menu::update/$1');
 
 $routes->post('menu/hapus/(:num)', 'Menu::hapus/$1');
 
-
+$routes->get('tentang', 'Tentang::index');
